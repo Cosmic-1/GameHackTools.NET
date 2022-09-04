@@ -3,7 +3,7 @@
 ![alt text](https://github.com/Cosmic-1/OverlayWindow.NET/blob/master/Image/Img.jpg)
 
 ## Usage
-Change the name of the game to NAME_GAME_WINDOW.
+Change the name of the game to FormOverlay.NAME_GAME_WINDOW (Folder Forms).
 
 You need to implement this interface.
 ```C#
