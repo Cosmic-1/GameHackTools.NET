@@ -19,6 +19,7 @@ namespace Overlay
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            //render all graphics
             foreach (var paint in paints)
                 paint.Render(e);
 
@@ -27,14 +28,19 @@ namespace Overlay
 
         private void UpdateGraphics_Tick(object sender, EventArgs e)
         {
+            //update the window
             this.HookWindowUpdate();
+            //Refresh the window. If you want to change update, you need to change interval in the Timer. Current 16 ms.
             this.Refresh();
         }
 
         private void FormOverlay_Load(object sender, EventArgs e)
         {
+            //Finds the game window  
             var result = this.SearchWindowGame(NAME_GAME_WINDOW);
-            if (result is false) MessageBox.Show("");
+            if (result is false) 
+                MessageBox.Show("Game not found. Run the game.");
+
             this.WindowTransparent();
         }
     }

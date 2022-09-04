@@ -6,6 +6,7 @@
         ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        //this is for checking the game window
         private nint handleWindowGame;
 
 
@@ -21,7 +22,9 @@
             }
             base.Dispose(disposing);
         }
-
+        /// <summary>
+        /// Update the window when the game window has changed size.
+        /// </summary>
         private void HookWindowUpdate()
         {
             if (handleWindowGame == ImportWindow.GetForegroundWindow())
@@ -44,16 +47,23 @@
                 this.WindowState = FormWindowState.Minimized;
             }
         }
-
+        /// <summary>
+        /// Makes the window transparent
+        /// </summary>
+        /// <exception cref="Exception">The method WindowTransparent can not be called prior to the window being initialized.</exception>
         private void WindowTransparent()
         {
             if (this.IsHandleCreated is false)
-                throw new Exception("The extension method MakeWindowTransparent can not be called prior to the window being initialized.");
+                throw new Exception("The method WindowTransparent can not be called prior to the window being initialized.");
 
             var extendedStyle = ImportWindow.GetWindowLongPtr(this.Handle, -20 /*GwlExstyle*/);
             ImportWindow.SetWindowLongPtr(this.Handle, -20 /*GwlExstyle*/, extendedStyle | (nint)0x00000020 /*WsExTransparent*/);
         }
-
+        /// <summary>
+        /// Find the game window by name.
+        /// </summary>
+        /// <param name="name">Name the game window.</param>
+        /// <returns>true if ptr is found or false if not.</returns>
         private bool SearchWindowGame(string name)
         {
             var ptr = ImportWindow.FindWindow(name);

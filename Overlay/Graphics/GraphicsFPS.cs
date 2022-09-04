@@ -2,7 +2,6 @@
 {
     public class GraphicsFPS : IGraphics
     {
-        readonly Pen pen;
         readonly Font font;
         readonly Brush brush;
         readonly PointF pointF;
@@ -11,11 +10,6 @@
         string renderStrFps = "FPS:";
         public GraphicsFPS()
         {
-            pen = new(Color.Green)
-            {
-                Width = 10
-            };
-
             font = new("Arial", 30);
             brush = Brushes.Gold;
             pointF = new PointF(10, 10);
