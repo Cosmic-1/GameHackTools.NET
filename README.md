@@ -33,3 +33,8 @@ Render method example:
   e.Graphics.DrawString(renderStrFps, font, brush, pointF);
 }
 ```
+
+## Problem
+Full screen doesn't work.
+I know this problem and will solve the problem soon.
+Run the game in a window only. 
