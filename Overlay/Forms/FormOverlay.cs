@@ -1,16 +1,11 @@
+using Overlay.Data;
+
 namespace Overlay
 {
     public partial class FormOverlay : Form
     {
-        #region Graphics
-        readonly IGraphics[] paints = {
-        new GraphicsBorderWindow(),
-        new GraphicsFPS(),
-       new GraphicsTestSpeedRender(),
-        };
-        #endregion
-
-        private const string NAME_GAME_WINDOW = "Left 4 Dead 2 - Direct3D 9";
+        private GraphicsCollection graphicsCollection;
+        private WindowInformation windowInformation;
 
         public FormOverlay()
         {
@@ -20,8 +15,7 @@ namespace Overlay
         protected override void OnPaint(PaintEventArgs e)
         {
             //render all graphics
-            foreach (var paint in paints)
-                paint.Render(e);
+            this.graphicsCollection.RenderAll(e);
 
             base.OnPaint(e);
         }
@@ -36,12 +30,42 @@ namespace Overlay
 
         private void FormOverlay_Load(object sender, EventArgs e)
         {
-            //Finds the game window  
-            var result = this.SearchWindowGame(NAME_GAME_WINDOW);
-            if (result is false) 
-                MessageBox.Show("Game not found. Run the game.");
-
+            //https://learn.microsoft.com/en-us/dotnet/desktop/winforms/advanced/how-to-reduce-graphics-flicker-with-double-buffering-for-forms-and-controls?view=netframeworkdesktop-4.8
+            this.SetStyle(ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer, true);
             this.WindowTransparent();
+
+            this.windowInformation = new("Left 4 Dead 2 - Direct3D 9");
+            this.graphicsCollection = new(new IGraphics[] { new GraphicsBorderWindow(), new GraphicsFPS(), new GraphicsTestSpeedRender() });
+            //Finds the game window  
+            if (windowInformation.IsValid is false)
+                MessageBox.Show("Game not found. Run the game.");
+        }
+
+        /// <summary>
+        /// Update the window when the game window has changed size.
+        /// </summary>
+        private void HookWindowUpdate()
+        {
+            //update information the window
+            windowInformation.UpdateWindow();
+
+            if (windowInformation.ForegroundWindow)
+            {
+                var rect = windowInformation.WindowRectangleClient;
+                this.Size = rect.Size;
+                this.Top = rect.Top;
+                this.Left = rect.Left;
+                this.WindowState = FormWindowState.Normal;
+                this.TopMost = true;
+            }
+            else
+            {
+                this.Size = Size.Empty;
+                this.Top = 0;
+                this.Left = 0;
+
+                this.WindowState = FormWindowState.Minimized;
+            }
         }
     }
 }

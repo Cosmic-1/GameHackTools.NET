@@ -1,6 +1,11 @@
-﻿global using Overlay;
+﻿global using Overlay.Data;
+global using Overlay;
+global using Overlay.Extension;
 global using Overlay.Graphics;
-global using Overlay.Native;
+global using Overlay.Sys.Native;
+global using Overlay.Sys;
+
+
 
 global using System.Diagnostics;
 global using System;
