@@ -1,10 +1,10 @@
-﻿namespace Overlay.Graphics
+﻿namespace Hack.Test
 {
-    public class GraphicsBorderWindow : IGraphics
+    public class BorderWindow : IGraphics
     {
         private readonly Pen pen;
 
-        public GraphicsBorderWindow()
+        public BorderWindow()
         {
             pen = new(Color.GreenYellow)
             {

@@ -1,4 +1,4 @@
-namespace Overlay
+namespace Hack
 {
     internal static class Program
     {
@@ -11,7 +11,7 @@ namespace Overlay
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormOverlay());
+            Application.Run(new HackForm());
         }
     }
 }

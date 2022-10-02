@@ -1,28 +1,9 @@
-﻿namespace Overlay.Graphics
+﻿using System.Diagnostics;
+
+namespace Hack.Test
 {
-    public class GraphicsFPS : IGraphics
-    {
-        readonly Font font;
-        readonly Brush brush;
-        readonly PointF pointF;
-        readonly FPS fps;
-        public GraphicsFPS()
-        {
-            font = new("Arial", 16);
-            brush = Brushes.Gold;
-            pointF = new PointF(10, 10);
-            fps = new();
-        }
 
-
-        public void Render(PaintEventArgs e)
-        {
-            fps.Update();
-            e.Graphics.DrawString(fps.ToString(), font, brush, pointF);
-        }
-    }
-
-    public class FPS
+    public class FPS : IGraphics
     {
         static readonly TimeSpan FpsUpdate = TimeSpan.FromSeconds(1);
 
@@ -33,6 +14,9 @@
 
         public FPS()
         {
+            font = new("Arial", 16);
+            brush = Brushes.Gold;
+            pointF = new PointF(10, 10);
             sw = Stopwatch.StartNew();
         }
 
@@ -52,6 +36,17 @@
         public override string ToString()
         {
             return $"FPS: {fps}";
+        }
+
+
+        readonly Font font;
+        readonly Brush brush;
+        readonly PointF pointF;
+
+        public void Render(PaintEventArgs e)
+        {
+            Update();
+            e.Graphics.DrawString(this.ToString(), font, brush, pointF);
         }
     }
 }

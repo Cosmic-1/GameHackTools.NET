@@ -1,11 +1,11 @@
-﻿namespace Overlay.Graphics
+﻿namespace Hack.Test
 {
-    public class GraphicsTestSpeedRender : IGraphics
+    public class TestSpeedRender : IGraphics
     {
         private readonly Random random;
         private readonly Pen enemy;
         private readonly Pen team;
-        public GraphicsTestSpeedRender()
+        public TestSpeedRender()
         {
             random = new Random();
             enemy = new Pen(Color.Red);

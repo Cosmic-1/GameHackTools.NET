@@ -3,6 +3,7 @@
     public static class Memory
     {
         #region Read
+
         public static bool BaseRead(nint processHandle, nint baseAddress, byte[] buffer, out int countReadBytes)
         {
             return ImportKernel32.ReadProcessMemory(processHandle, baseAddress, buffer, buffer.Length,  out countReadBytes);
@@ -73,7 +74,9 @@
         }
 
         #endregion
-        #region Write  
+
+        #region Write 
+        
         public static bool BaseWrite(nint processHandle, nint baseAddress, byte[] buffer, out int countWriteBytes)
         {
             return ImportKernel32.WriteProcessMemory(processHandle, baseAddress, buffer, buffer.Length, out countWriteBytes);

@@ -1,4 +1,4 @@
-﻿namespace Overlay.Data
+﻿namespace Overlay
 {
     public class WindowInformation
     {

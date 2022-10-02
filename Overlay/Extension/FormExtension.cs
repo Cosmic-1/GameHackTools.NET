@@ -1,6 +1,6 @@
 ﻿namespace Overlay.Extension
 {
-    public static class FormExtension
+    internal static class FormExtension
     {
         /// <summary>
         /// Makes the window transparent

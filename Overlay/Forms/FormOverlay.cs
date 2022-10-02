@@ -1,30 +1,50 @@
-using Overlay.Data;
-
-namespace Overlay
+namespace Overlay.Forms
 {
-    public partial class FormOverlay : Form
+    internal class FormOverlay : Form
     {
-        private GraphicsCollection graphicsCollection;
-        private WindowInformation windowInformation;
+        private readonly List<IGraphics> graphicsCollection;
+        private readonly WindowInformation windowInformation;
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-        public FormOverlay()
+        public FormOverlay(List<IGraphics> graphicsCollection, WindowInformation windowInformation)
         {
-            InitializeComponent();
+            this.windowInformation = windowInformation;
+            this.graphicsCollection = graphicsCollection;
+
+            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormOverlay
+            // 
+            this.AutoScaleDimensions = new SizeF(7F, 15F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.BackColor = Color.Gray;
+            this.ClientSize = new Size(27, 31);
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Name = "FormOverlay";
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Text = "FormOverlay";
+            this.TransparencyKey = Color.Gray;
+            this.Load += new EventHandler(this.FormOverlay_Load);
+            this.ResumeLayout(false);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             //render all graphics
-            this.graphicsCollection.RenderAll(e);
+            this.graphicsCollection.ForEach(g => g.Render(e));
 
             base.OnPaint(e);
         }
 
-        private void UpdateGraphics_Tick(object sender, EventArgs e)
+        public void UpdateGraphics()
         {
             //update the window
             this.HookWindowUpdate();
-            //Refresh the window. If you want to change update, you need to change interval in the Timer. Current 16 ms.
+            //Refresh the window.
             this.Refresh();
         }
 
@@ -33,12 +53,6 @@ namespace Overlay
             //https://learn.microsoft.com/en-us/dotnet/desktop/winforms/advanced/how-to-reduce-graphics-flicker-with-double-buffering-for-forms-and-controls?view=netframeworkdesktop-4.8
             this.SetStyle(ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer, true);
             this.WindowTransparent();
-
-            this.windowInformation = new("Left 4 Dead 2 - Direct3D 9");
-            this.graphicsCollection = new(new IGraphics[] { new GraphicsBorderWindow(), new GraphicsFPS(), new GraphicsTestSpeedRender() });
-            //Finds the game window  
-            if (windowInformation.IsValid is false)
-                MessageBox.Show("Game not found. Run the game.");
         }
 
         /// <summary>
@@ -66,6 +80,19 @@ namespace Overlay
 
                 this.WindowState = FormWindowState.Minimized;
             }
+        }
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

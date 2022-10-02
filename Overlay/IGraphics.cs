@@ -1,4 +1,4 @@
-﻿namespace Overlay.Graphics
+﻿namespace Overlay
 {
     /// <summary>
     /// Implement an interface for rendering in a window

@@ -1,6 +1,6 @@
 ﻿namespace Overlay.Sys
 {
-    public static class WindowAPI
+    internal static class WindowAPI
     {
         public static IntPtr FindWindow(string windowName)
            => ImportUser32.FindWindow(null, windowName);
