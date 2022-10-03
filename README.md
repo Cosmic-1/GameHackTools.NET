@@ -3,10 +3,6 @@
 ![alt text](https://github.com/Cosmic-1/OverlayWindow.NET/blob/master/Image/Img.jpg)
 
 ## Usage
-Change the name of the game to "FormOverlay.NAME_GAME_WINDOW" (Folder Forms).
-```C#
- private const string NAME_GAME_WINDOW = "Left 4 Dead 2 - Direct3D 9";
-```
 You need to implement this interface.
 ```C#
     public interface IGraphics
@@ -15,28 +11,27 @@ You need to implement this interface.
     }
 ```
 
-And add a class to this array.
+Add an element to this OverlayWindow class:
 ```C#
-readonly IGraphics[] paints = {
-        new GraphicsBorderWindow(),
-        new GraphicsFPS(),
-       new GraphicsTestSpeedRender(),
-        };
+        OverlayWindow window = new("NAME GAME", => here <=);
 ```
+Or add to the list:
+```C#
+        window.GraphicsCollection.Add(=> here <=);
+```
+
 Render method example:
 
 ```C#
- public void Render(PaintEventArgs e)
-{
-  var renderStrFps = "FPS: ";
-  var font = new Font("Arial", 30);
-  var brush = Brushes.Gold;
-  var pointF = new PointF(10, 10);
-  e.Graphics.DrawString(renderStrFps, font, brush, pointF);
-}
+  public void Render(PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            var rectagle = new Rectangle(0, 0, e.ClipRectangle.Width, e.ClipRectangle.Height);
+            g.DrawRectangle(pen, rectagle);
+        }
 ```
 
 ## Problem
 Full screen doesn't work.
 I know this problem and will solve the problem soon.
-Run the game in a window only. 
+Run the game in a window only or window without border. 
