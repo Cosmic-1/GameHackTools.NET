@@ -13,8 +13,9 @@
         }
         public void Render(PaintEventArgs e)
         {
+            var g = e.Graphics;
             var rectagle = new Rectangle(0, 0, e.ClipRectangle.Width, e.ClipRectangle.Height);
-            e.Graphics.DrawRectangle(pen, rectagle);
+            g.DrawRectangle(pen, rectagle);
         }
     }
 }

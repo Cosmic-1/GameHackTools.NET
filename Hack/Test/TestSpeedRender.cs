@@ -18,6 +18,7 @@
             var listTeam = new List<Rectangle>();
             int height, width, x, y;
             Rectangle rectagle;
+            var g = e.Graphics;
 
             for (int i = 0; i < 32; i++)
             {
@@ -51,11 +52,11 @@
 
             if (listEnemys.Any())
             {
-                e.Graphics.DrawRectangles(enemy, listEnemys.ToArray());
+                g.DrawRectangles(enemy, listEnemys.ToArray());
             }
             if (listTeam.Any())
             {
-                e.Graphics.DrawRectangles(team, listTeam.ToArray());
+                g.DrawRectangles(team, listTeam.ToArray());
             }
         }
     }

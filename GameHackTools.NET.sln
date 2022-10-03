@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OverlayManagement", "Overlay\OverlayManagement.csproj", "{1424C64D-10DD-4A0B-879A-49E780445CD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OverlayManagement", "OverlayManagement\OverlayManagement.csproj", "{1424C64D-10DD-4A0B-879A-49E780445CD1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryManagement", "MemoryManagement\MemoryManagement.csproj", "{F551901C-DFC3-46BC-BA53-5F360A11316A}"
 EndProject

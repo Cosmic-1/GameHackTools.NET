@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MemoryManagement\MemoryManagement.csproj" />
-    <ProjectReference Include="..\Overlay\OverlayManagement.csproj" />
+    <ProjectReference Include="..\OverlayManagement\OverlayManagement.csproj" />
   </ItemGroup>
 
 </Project>

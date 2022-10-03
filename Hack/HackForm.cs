@@ -3,6 +3,7 @@ namespace Hack
     public partial class HackForm : Form
     {
 #nullable disable
+        private const string NAME_GAME_WINDOW = "Left 4 Dead 2 - Direct3D 9";
         private OverlayWindow window;
 #nullable enable
 
@@ -13,7 +14,7 @@ namespace Hack
 
         private void HackForm_Load(object sender, EventArgs e)
         {
-            window = new("Left 4 Dead 2 - Direct3D 9", new FPS(), new BorderWindow(), new TestSpeedRender());
+            window = new(NAME_GAME_WINDOW, new FPS(), new BorderWindow(), new TestSpeedRender());
             window.Show();
         }
 
