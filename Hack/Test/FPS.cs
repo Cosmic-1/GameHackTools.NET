@@ -45,8 +45,9 @@ namespace Hack.Test
 
         public void Render(PaintEventArgs e)
         {
+            var g = e.Graphics;
             Update();
-            e.Graphics.DrawString(this.ToString(), font, brush, pointF);
+            g.DrawString(this.ToString(), font, brush, pointF);
         }
     }
 }
