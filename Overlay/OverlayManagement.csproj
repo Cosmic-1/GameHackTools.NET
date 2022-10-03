@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MemoryManagement\MemoryManagement.csproj" />
+    <ProjectReference Include="..\NativeManagement\NativeManagement.csproj" />
   </ItemGroup>
 
 </Project>

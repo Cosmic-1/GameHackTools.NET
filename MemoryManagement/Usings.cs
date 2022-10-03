@@ -3,4 +3,4 @@ global using System.Runtime.InteropServices;
 global using System.Text;
 
 global using MemoryManagement;
-global using MemoryManagement.Native;
+global using NativeManagement;

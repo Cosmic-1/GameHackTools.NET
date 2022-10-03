@@ -1,8 +1,8 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace MemoryManagement.Native
+namespace NativeManagement
 {
-    internal static class ImportKernel32
+    public static class ImportKernel32
     {
         [DllImport("kernel32.dll")]
         public static extern bool ReadProcessMemory(nint hProcess, nint lpBaseAddress, byte[] buffer, int size, out int lpNumberOfBytesRead);

@@ -1,7 +1,9 @@
 ﻿
-namespace Overlay.Sys.Native
+using System.Runtime.InteropServices;
+
+namespace NativeManagement
 {
-    internal static class ImportUser32
+    public static class ImportUser32
     {
         [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
@@ -29,7 +31,7 @@ namespace Overlay.Sys.Native
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    internal struct Rect
+    public struct Rect
     {
         public int
             Left,

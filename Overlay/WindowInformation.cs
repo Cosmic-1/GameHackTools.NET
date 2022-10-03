@@ -1,4 +1,4 @@
-﻿namespace Overlay
+﻿namespace OverlayManagement
 {
     public class WindowInformation
     {

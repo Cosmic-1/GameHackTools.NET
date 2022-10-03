@@ -1,4 +1,4 @@
-namespace Overlay.Forms
+namespace OverlayManagement.Forms
 {
     internal class FormOverlay : Form
     {

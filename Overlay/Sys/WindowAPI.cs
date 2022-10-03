@@ -1,4 +1,4 @@
-﻿namespace Overlay.Sys
+﻿namespace OverlayManagement.Sys
 {
     internal static class WindowAPI
     {

@@ -1,4 +1,4 @@
-﻿global using Overlay;
+﻿global using OverlayManagement;
 global using MemoryManagement;
 
 global using Hack;

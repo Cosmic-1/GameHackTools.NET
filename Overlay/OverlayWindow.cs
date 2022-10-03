@@ -1,11 +1,12 @@
-﻿using Overlay.Forms;
+﻿using OverlayManagement.Forms;
 
-namespace Overlay
+namespace OverlayManagement
 {
     public class OverlayWindow : IDisposable
     {
         public WindowInformation WindowInformation => windowInformation;
         public List<IGraphics> GraphicsCollection => graphicsCollection;
+        public Form Form => overlay;
 
         private readonly FormOverlay overlay;
         private readonly List<IGraphics> graphicsCollection;

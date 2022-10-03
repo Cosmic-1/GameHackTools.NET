@@ -1,9 +1,8 @@
-﻿global using Overlay;
-global using Overlay.Extension;
-global using Overlay.Sys.Native;
-global using Overlay.Sys;
+﻿global using OverlayManagement;
+global using OverlayManagement.Extension;
+global using OverlayManagement.Sys;
 
-
+global using NativeManagement;
 
 global using System.Diagnostics;
 global using System;
