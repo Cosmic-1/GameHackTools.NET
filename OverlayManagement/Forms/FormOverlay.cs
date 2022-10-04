@@ -63,22 +63,22 @@ namespace OverlayManagement.Forms
             //update information the window
             windowInformation.UpdateWindow();
 
-            if (windowInformation.ForegroundWindow)
+            if (windowInformation.IsValid)
             {
                 var rect = windowInformation.WindowRectangleClient;
+
                 this.Size = rect.Size;
                 this.Top = rect.Top;
                 this.Left = rect.Left;
-                this.WindowState = FormWindowState.Normal;
                 this.TopMost = true;
+                this.WindowState = FormWindowState.Normal;
             }
             else
             {
                 this.Size = Size.Empty;
                 this.Top = 0;
                 this.Left = 0;
-
-                this.WindowState = FormWindowState.Minimized;
+                this.TopMost = false;
             }
         }
 
